@@ -45,7 +45,7 @@ This project is the backend part of an authentication system using ASP.NET Core 
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/Angular-18-User-Registration-with-Asp.Net-Core-Web-API---BE.git
+   git clone https://github.com/e19465/Angular-18-User-Registration-with-Asp.Net-Core-Web-API---BE.git
    cd Angular-18-User-Registration-with-Asp.Net-Core-Web-API---BE/AuthECBackend
    ```
 
