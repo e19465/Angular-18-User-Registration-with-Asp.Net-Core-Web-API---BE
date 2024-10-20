@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YTF0JfJTKZ140OBurNdUXaXtX02zbrOuhQlnMiLfThw=",
+  "Source": "AuthECBackend",
+  "BasePath": "_content/AuthECBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
