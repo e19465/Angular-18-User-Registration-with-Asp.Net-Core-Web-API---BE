@@ -9,18 +9,28 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace AuthECBackend.Helpers
 {
-    public class GenerateTokens
+    public static class GenerateTokens
     {
-        public static string GenerateAccessToken(AppUser user, IOptions<AppSettings> appSettings)
+        public static string GenerateAccessToken(AppUser user, IOptions<AppSettings> appSettings, object userRole)
         {
             // providing access token
             var accessSecret = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(appSettings.Value.AccessTokenSecret));
+
+            ClaimsIdentity claims = new ClaimsIdentity(new Claim[]
+            {
+                new Claim("UserId", user.Id),
+                new Claim("Gender", user.Gender!.ToString()),
+                new Claim("Age", ((DateTime.Now.Year - user.DOB.Year)).ToString()),
+                //new Claim(ClaimTypes.Role, userRole)
+            });
+            if (user.LibraryId != null)
+            {
+                claims.AddClaim(new Claim("LibraryId", user.LibraryId.ToString()!));
+            }
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
-                    {
-                                    new Claim("UserId", user.Id)
-                    }),
+                Subject = claims,
                 Expires = DateTime.UtcNow.AddSeconds(30), // token expires in 5 minutes
                 SigningCredentials = new SigningCredentials(accessSecret, SecurityAlgorithms.HmacSha256Signature)
             };

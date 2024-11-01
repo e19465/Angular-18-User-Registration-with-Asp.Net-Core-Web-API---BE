@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AuthECBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da6aaf47baddc3581080c508713fcabbf67b97c2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04677b887a259ffc2728f76bed8a22ce95eac54d")]
 [assembly: System.Reflection.AssemblyProductAttribute("AuthECBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AuthECBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

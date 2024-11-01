@@ -54,27 +54,39 @@ namespace AuthECBackend.Controllers
                 {
                     FullName = userRegisterDTO.FullName.Trim(),
                     Email = userRegisterDTO.Email,
-                    UserName = userRegisterDTO.Email
+                    UserName = userRegisterDTO.Email,
+                    Gender = userRegisterDTO.Gender,
+                    DOB = DateOnly.FromDateTime(DateTime.Now.AddYears(-userRegisterDTO.Age)),
+                    LibraryId = userRegisterDTO.LibraryId
                 };
 
                 var result = await userManager.CreateAsync(user, userRegisterDTO.Password);
 
-                if (result.Succeeded)
+                if (!result.Succeeded)
                 {
-                    return Results.Ok(result);
-                }
-                else
-                {
+                    // Gather error messages to send a more user-friendly response
                     return Results.BadRequest(result.Errors);
                 }
+
+                // Assign role to user
+                var roleResult = await userManager.AddToRoleAsync(user, userRegisterDTO.Role);
+                if (!roleResult.Succeeded)
+                {
+                    return Results.BadRequest(roleResult.Errors);
+                }
+
+                return Results.Ok(result);
             }
             catch (Exception ex)
             {
 
-                // send 500 internal server error
-                var statusCode = (int)HttpStatusCode.InternalServerError;
-                var error = JsonSerializer.Serialize(new { error = ex });
-                return Results.Problem(error, statusCode.ToString());
+                // Send 500 internal server error with relevant exception data
+                return Results.Problem(new
+                {
+                    Message = "An error occurred during registration.",
+                    Error = ex.Message,
+                    StackTrace = ex.StackTrace // Only if you need to show stack trace in development
+                }.ToString(), statusCode: (int)HttpStatusCode.InternalServerError);
             }
         }
 
@@ -90,9 +102,13 @@ namespace AuthECBackend.Controllers
                 var foundUser = await userManager.FindByEmailAsync(userLoginDTO.Email);
                 if (foundUser != null && await userManager.CheckPasswordAsync(foundUser, userLoginDTO.Password))
                 {
-                    var accessToken = GenerateTokens.GenerateAccessToken(foundUser, appSettings);
+                    var roles = await userManager.GetRolesAsync(foundUser);
+                    string userRole = roles.First().ToString();
+
+                    var accessToken = GenerateTokens.GenerateAccessToken(foundUser, appSettings, userRole);
                     var refreshToken = await GenerateTokens.GenerateRefreshToken(foundUser, appSettings, appDbContext);
                     return Results.Ok(new { accessToken = accessToken, refreshToken = refreshToken });
+
                 }
                 else
                 {
@@ -101,10 +117,13 @@ namespace AuthECBackend.Controllers
             }
             catch (Exception ex)
             {
-                // send 500 internal server error
-                var statusCode = (int)HttpStatusCode.InternalServerError;
-                var error = JsonSerializer.Serialize(new { error = ex });
-                return Results.Problem(error, statusCode.ToString());
+                // Send 500 internal server error with relevant exception data
+                return Results.Problem(new
+                {
+                    Message = "An error occurred during registration.",
+                    Error = ex.Message,
+                    StackTrace = ex.StackTrace // Only if you need to show stack trace in development
+                }.ToString(), statusCode: (int)HttpStatusCode.InternalServerError);
             }
         }
 
@@ -159,13 +178,16 @@ namespace AuthECBackend.Controllers
                     return Results.Unauthorized();
                 }
 
+                var roles = await userManager.GetRolesAsync(foundUser);
+                string userRole = roles.First().ToString();
+
                 // Set the refresh token to used
                 foundRefreshToken.IsUsed = true;
                 appDbContext.RefreshTokens.Update(foundRefreshToken);
                 await appDbContext.SaveChangesAsync();
 
                 // Create a new access token
-                var newAccessToken = GenerateTokens.GenerateAccessToken(foundUser, appSettings);
+                var newAccessToken = GenerateTokens.GenerateAccessToken(foundUser, appSettings, userRole);
                 var newRefreshToken = await GenerateTokens.GenerateRefreshToken(foundUser, appSettings, appDbContext);
 
                 return Results.Ok(new { accessToken = newAccessToken, refreshToken = newRefreshToken });

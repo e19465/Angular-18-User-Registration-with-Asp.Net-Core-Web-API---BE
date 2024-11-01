@@ -13,6 +13,7 @@ namespace AuthECBackend.Extensions
         public static IServiceCollection AddIdentityHandlersAndStores(this IServiceCollection services)
         {
             services.AddIdentityApiEndpoints<AppUser>()
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
             return services;
         }

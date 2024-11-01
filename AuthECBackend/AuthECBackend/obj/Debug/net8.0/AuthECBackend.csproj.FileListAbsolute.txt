@@ -147,3 +147,4 @@ C:\Users\SasinduDilshan\Desktop\projects\Angular-18-User-Registration-with-Asp.N
 C:\Users\SasinduDilshan\Desktop\projects\Angular-18-User-Registration-with-Asp.Net-Core-Web-API---BE\AuthECBackend\AuthECBackend\obj\Debug\net8.0\AuthECBackend.genruntimeconfig.cache
 C:\Users\SasinduDilshan\Desktop\projects\Angular-18-User-Registration-with-Asp.Net-Core-Web-API---BE\AuthECBackend\AuthECBackend\obj\Debug\net8.0\ref\AuthECBackend.dll
 C:\Users\SasinduDilshan\Desktop\projects\Angular-18-User-Registration-with-Asp.Net-Core-Web-API---BE\AuthECBackend\AuthECBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\SasinduDilshan\Desktop\projects\Angular-18-User-Registration-with-Asp.Net-Core-Web-API---BE\AuthECBackend\AuthECBackend\bin\Debug\net8.0\users.json

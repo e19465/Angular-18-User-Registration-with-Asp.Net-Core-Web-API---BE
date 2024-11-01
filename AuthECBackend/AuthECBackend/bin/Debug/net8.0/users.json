@@ -1,0 +1,67 @@
+[
+    {
+        "email": "admin1_m_age51@gmail.com",
+        "password": "Admin1_m!",
+        "confirmPassword": "Admin1_m!",
+        "fullName": "Admin 1",
+        "role": "Admin",
+        "gender": "Male",
+        "age": 51
+    },
+    {
+        "email": "teacher1_f_age36@gmail.com",
+        "password": "Teacher1_f@",
+        "confirmPassword": "Teacher1_f@",
+        "fullName": "Teacher 1",
+        "role": "Teacher",
+        "gender": "Female",
+        "age": 36
+    },
+    {
+        "email": "teacher2_m_age40@gmail.com",
+        "password": "Teacher2_m#",
+        "confirmPassword": "Teacher2_m#",
+        "fullName": "Teacher 2",
+        "role": "Teacher",
+        "gender": "Male",
+        "age": 40
+    },
+    {
+        "email": "student1_f_age21@gmail.com",
+        "password": "Student1_f$",
+        "confirmPassword": "Student1_f$",
+        "fullName": "Student 1",
+        "role": "Student",
+        "gender": "Female",
+        "age": 21,
+        "libraryId": 3452345
+    },
+    {
+        "email": "student2_m_age21@gmail.com",
+        "password": "Student2_m%",
+        "confirmPassword": "Student2_m%",
+        "fullName": "Student 2",
+        "role": "Student",
+        "gender": "Male",
+        "age": 21
+    },
+    {
+        "email": "student3_m_age9@gmail.com",
+        "password": "Student3_m&",
+        "confirmPassword": "Student3_m&",
+        "fullName": "Student 3",
+        "role": "Student",
+        "gender": "Male",
+        "age": 9
+    },
+    {
+        "email": "student4_f_age9@gmail.com",
+        "password": "Student4_f*",
+        "confirmPassword": "Student4_f*",
+        "fullName": "Student 4",
+        "role": "Student",
+        "gender": "Female",
+        "age": 9,
+        "libraryId": 555434
+    }
+]
