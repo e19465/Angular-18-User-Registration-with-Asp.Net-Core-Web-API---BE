@@ -11,7 +11,7 @@ namespace AuthECBackend.Helpers
 {
     public static class GenerateTokens
     {
-        public static string GenerateAccessToken(AppUser user, IOptions<AppSettings> appSettings, object userRole)
+        public static string GenerateAccessToken(AppUser user, IOptions<AppSettings> appSettings, string userRole)
         {
             // providing access token
             var accessSecret = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(appSettings.Value.AccessTokenSecret));
@@ -21,7 +21,7 @@ namespace AuthECBackend.Helpers
                 new Claim("UserId", user.Id),
                 new Claim("Gender", user.Gender!.ToString()),
                 new Claim("Age", ((DateTime.Now.Year - user.DOB.Year)).ToString()),
-                //new Claim(ClaimTypes.Role, userRole)
+                new Claim("Role", userRole)
             });
             if (user.LibraryId != null)
             {

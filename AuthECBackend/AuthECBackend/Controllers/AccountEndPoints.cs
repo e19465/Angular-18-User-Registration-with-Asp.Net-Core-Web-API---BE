@@ -10,7 +10,7 @@ namespace AuthECBackend.Controllers
         public static IEndpointRouteBuilder MapAccountEndPoints(this IEndpointRouteBuilder app)
         {
             // GET user profile endpoint
-            app.MapGet("/user-profile", GetUserProfile).RequireAuthorization();
+            app.MapGet("/user-profile", GetUserProfile);
 
             return app;
         }

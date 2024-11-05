@@ -1,5 +1,53 @@
 [
   {
+    "ContainingType": "AuthECBackend.Controllers.AuthorizationEndPoints",
+    "Method": "AdminAndTeacehrOnlyExample",
+    "RelativePath": "api/admin-and-teacher-only",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AuthECBackend.Controllers.AuthorizationEndPoints",
+    "Method": "AdminOnlyExample",
+    "RelativePath": "api/admin-only",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AuthECBackend.Controllers.AuthorizationEndPoints",
+    "Method": "ApplyMaternityLeave",
+    "RelativePath": "api/apply-maternity-leave",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions\u002B\u003C\u003Ec__1\u00601[[AuthECBackend.Models.Entities.AppUser, AuthECBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "\u003CMapIdentityApi\u003Eb__1_3",
     "RelativePath": "api/confirmEmail",
@@ -58,6 +106,22 @@
           "application/problem\u002Bjson"
         ],
         "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "AuthECBackend.Controllers.AuthorizationEndPoints",
+    "Method": "LibraryMembersOnly",
+    "RelativePath": "api/library-members-only",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
       }
     ]
   },
@@ -337,6 +401,54 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AuthECBackend.Controllers.AuthorizationEndPoints",
+    "Method": "StudentOnlyExample",
+    "RelativePath": "api/student-only",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AuthECBackend.Controllers.AuthorizationEndPoints",
+    "Method": "TeacherOnlyExample",
+    "RelativePath": "api/teacher-only",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AuthECBackend.Controllers.AuthorizationEndPoints",
+    "Method": "UnderTenFemalesOnly",
+    "RelativePath": "api/under-10-females-only",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Void",

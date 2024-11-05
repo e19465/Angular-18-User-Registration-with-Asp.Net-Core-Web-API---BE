@@ -58,6 +58,12 @@ namespace AuthECBackend.Extensions
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser()
                     .Build();
+
+                options.AddPolicy("HasLibraryId", policy => policy.RequireClaim("LibraryId"));
+                options.AddPolicy("FemalesOnly", policy => policy.RequireClaim("Gender", "Female"));
+                options.AddPolicy("AgeUnderTenOnly", policy => policy.RequireAssertion(context =>
+                    Int32.Parse(context.User.Claims.First(x => x.Type == "Age").Value) < 10
+                ));
             });
 
             return services;
